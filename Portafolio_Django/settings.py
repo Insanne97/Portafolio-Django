@@ -91,8 +91,10 @@ DATABASES = {
     #     'HOST': 'localhost',
     #     'PORT': '3306'
     # }
+    
+    # 'mysql://root:admin@localhost:3306/portafolio_django'
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:3306/postgres',
+        default= 'postgresql://postgres:postgres@localhost:3306/postgres',
         conn_max_age=600)
     }
 
