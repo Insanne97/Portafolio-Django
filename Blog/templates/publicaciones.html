@@ -1,0 +1,64 @@
+{% extends 'plantilla.html' %}
+
+
+{% block content %}
+<section class="content-section bg-primary text-white text-center" id="services">
+    <div class="container px-4 px-lg-5">
+        <div class="content-section-heading">
+            <div class="container d-flex justify-content-center my-3 col-10">
+                <h1>¡Conoce todos los Proyecto al detalle!</h1>
+                <div class="">
+                    <p class="lead mb-3 d-flex align-items-center ms-4 mt-3">
+                        Entérate del paso a paso de como se desarrollaron todos y cada uno de estos proyectos.
+                    </p>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+</div>
+
+<div class="container">
+
+    <div class="row gx-0 d-flex justify-content-center mb-5 ">
+        {% for publicacion in publicaciones %}
+        <div class="container col-lg-4">
+
+            <section class="mx-auto my-5" style="max-width: 23rem;">
+                <div class="card">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="{{publicacion.imagen.url}}" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold"><a>{{publicacion.titulo}}</a></h5>
+                        <p class="mb-2">{{publicacion.fecha | date:'M d Y'}}</p>
+                        <p class="card-text">{{publicacion.descripcion | truncatechars:100}}</p>
+                        <hr class="my-4" />
+                        <ul class="list-unstyled list-inline d-flex justify-content-between">
+                            <li class="list-inline-item">
+                                <a class="btn btn-primary" href="{% url 'blog:publicacion_id' publicacion.id %}">Visitar
+                                    proyecto</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        {% endfor %}
+    </div>
+
+</div>
+
+<!-- Map-->
+<div class="map" id="contact">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11282.430820505611!2d-77.28923818820563!3d1.2011079644294969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2ed48761b92a73%3A0x44a368566cc3a522!2zUGFzdG8sIE5hcmnDsW8!5e0!3m2!1ses!2sco!4v1672809140081!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <br />
+    <small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a></small>
+</div>
+{% endblock content %}
